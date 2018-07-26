@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import fire from "./config/fire";
+import firebase from "./config/firebase";
 
 class Login extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class Login extends Component {
   handleSubmit(event) {
     const { email, password } = this.state;
     event.preventDefault();
-    console.log("handleSubmit fired!", email, password);
+    console.log("handleSubmit firebased!", email, password);
 
     // DO: check for invalid entry
 
@@ -33,7 +33,7 @@ class Login extends Component {
       return { email: "", password: "" };
     });
 
-    fire
+    firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(auth => {
@@ -46,7 +46,7 @@ class Login extends Component {
 
   createAccount() {
     const { email, password } = this.state;
-    fire
+    firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(auth => {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import fire from "./config/fire";
+import firebase from "./config/firebase";
 import Home from "./Home";
 import Login from "./Login";
 
@@ -19,7 +19,7 @@ class App extends Component {
 
   // this function is called whenever the authentication state changes
   authListener() {
-    fire.auth().onAuthStateChanged(user => {
+    firebase.auth().onAuthStateChanged(user => {
       if (user) {
         // localStorage.setItem("user", user.uid);
         this.setState({ user });

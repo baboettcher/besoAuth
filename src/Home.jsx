@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import fire from "./config/fire";
+import firebase from "./config/firebase";
 
 class Home extends Component {
   constructor(props) {
@@ -13,28 +13,37 @@ class Home extends Component {
   }
 
   logout() {
-    fire.auth().signOut();
+    firebase.auth().signOut();
     console.log("signed out");
   }
 
   componentDidMount() {
-    const that = this;
-    fire.auth().onAuthStateChanged(function(user) {
+    firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         // User is signed in.
-        var displayName = user.displayName;
-        var email = user.email;
-        var emailVerified = user.emailVerified;
-        var photoURL = user.photoURL;
-        var isAnonymous = user.isAnonymous;
-        var uid = user.uid;
-        var providerData = user.providerData;
+        // var displayName = user.displayName;
+        // var email = user.email;
+        // var emailVerified = user.emailVerified;
+        // var photoURL = user.photoURL;
+        // var isAnonymous = user.isAnonymous;
+        // var uid = user.uid;
+        // var providerData = user.providerData;
 
-        // change this?
-        that.setState(() => {
-          uid, email;
-        });
-        // ...
+        const currentUser = firebase.auth().currentUser;
+
+        console.log("CU->", currentUser);
+        const { name, email, photoUrl, uid, emailVerified } = currentUser;
+        console.log(
+          "name, email, photoUrl, uid, emailVerified)--->",
+          name,
+          email,
+          photoUrl,
+          uid,
+          emailVerified
+        );
+
+        //var user = firebase.auth().currentUser;
+        // ... how to get this into state?
       } else {
         // User is signed out.
         // ...
@@ -43,13 +52,9 @@ class Home extends Component {
   }
 
   render() {
-    const { email, uid } = this.state;
-    console.log(email, uid);
-
     return (
       <div>
         <h1>HOME</h1>
-        {email} and {uid}
         <button onClick={this.logout}>log off</button>
       </div>
     );

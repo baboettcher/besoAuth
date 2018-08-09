@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import fakeAuth from "./auth/fakeAuth";
+import fakeAuth2 from "./auth/firebaseAuth2";
+//import firebaseAuth from "./auth/firebaseAuth";
 
 export default class Login extends Component {
   state = {
     redirectToReferrer: false
   };
   login = () => {
-    fakeAuth.authenticate(() => {
+    // firebase / mongo /fake
+    // NEXT --->> HERE
+    fakeAuth2.authenticate(() => {
       this.setState(() => ({
         redirectToReferrer: true
       }));

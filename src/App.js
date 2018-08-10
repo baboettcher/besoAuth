@@ -13,9 +13,9 @@ import PublicPage1 from "./PublicPage1";
 import PublicPage2 from "./PublicPage2";
 import PublicPage3 from "./PublicPage3";
 
-const Protected1 = () => <h3>Protected1</h3>;
-const Protected2 = () => <h3>Protected2</h3>;
-const Protected3 = () => <h3>Protected3</h3>;
+// const Protected1 = () => <h3>Protected1</h3>;
+// const Protected2 = () => <h3>Protected2</h3>;
+// const Protected3 = () => <h3>Protected3</h3>;
 
 export default function AppAuth() {
   return (

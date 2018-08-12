@@ -22,7 +22,7 @@ class Home extends Component {
       <div>
         <h1>Home Sweet Home</h1>
 
-        <h3>Add React Router here</h3>
+        <h3>GC TEST</h3>
         <button onClick={this.logout}>signout</button>
       </div>
     );
